@@ -6,7 +6,7 @@ import reducer from './reducers'
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { from } from 'rxjs';
+//import { from } from 'rxjs';
 
 const store = createStore(reducer)
 ReactDOM.render(
