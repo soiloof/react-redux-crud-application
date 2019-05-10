@@ -11,23 +11,26 @@ import EventsNew from './components/events_new';
 import EventsShow from './components/events_show';
 import * as serviceWorker from './serviceWorker';
 import {composeWithDevTools} from 'redux-devtools-extension'
-import { from } from 'rxjs';
-import { id } from 'postcss-selector-parser';
+//import { from } from 'rxjs';
+//import { id } from 'postcss-selector-parser';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 //import { from } from 'rxjs';
 const enhancer = process.env.NODE_ENV === 'development'?
     composeWithDevTools(applyMiddleware(thunk)):applyMiddleware(thunk)
 const store = createStore(reducer,enhancer)
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <Switch>
-                <Route  path="/events/new" component={EventsNew}/>
-                <Route exact path="/" component={EventsIndex}/>
-                <Route  path="/events/:id" component={EventsShow}/>
-                <Route exact path="/events" component={EventsIndex}/>
-            </Switch>
-        </BrowserRouter>
-    </Provider>, 
+    <MuiThemeProvider>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route  path="/events/new" component={EventsNew}/>
+                    <Route exact path="/" component={EventsIndex}/>
+                    <Route  path="/events/:id" component={EventsShow}/>
+                    <Route exact path="/events" component={EventsIndex}/>
+                </Switch>
+            </BrowserRouter>
+        </Provider>
+    </MuiThemeProvider>, 
     document.getElementById('root')
 );
 

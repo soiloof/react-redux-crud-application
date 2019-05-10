@@ -1,6 +1,6 @@
 import {READ_EVENTS,DELETE_EVENT, READ_EVENT,UPDATE_EVENT,CREATE_EVENT} from '../actions'
 import _ from 'lodash'
-import { id } from 'postcss-selector-parser';
+//import { id } from 'postcss-selector-parser';
 
 export default (events={},action) => {
     switch(action.type){
